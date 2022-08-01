@@ -11,3 +11,8 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+:root {
+    --content-max-width: 1140px;
+    --bk-sm: 600px;
+}
