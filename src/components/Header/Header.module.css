@@ -25,9 +25,3 @@
     max-width: 208px;
     cursor: pointer;
 }
-
-@media only screen and (min-width: var(--bk-sm)) {
-    .logo {
-        width: 20vw;
-    }
-}
