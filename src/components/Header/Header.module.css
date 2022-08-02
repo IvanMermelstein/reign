@@ -7,7 +7,7 @@
     background: linear-gradient(
         0deg,
         rgba(255, 255, 255, 1) 0%,
-        rgba(236, 236, 236, 1) 40%
+        rgba(236, 236, 236, 1) 50%
     );
     display: flex;
     justify-content: center;
@@ -24,10 +24,4 @@
     width: 50vw;
     max-width: 208px;
     cursor: pointer;
-}
-
-@media only screen and (min-width: var(--bk-sm)) {
-    .logo {
-        width: 20vw;
-    }
 }

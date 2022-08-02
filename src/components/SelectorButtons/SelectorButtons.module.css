@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 5vh 0;
+}
+
+.buttonAll,
+.buttonMyFaves {
+    width: 100px;
+    background-color: transparent;
+    border: solid 1px #d6d6d6;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #6a6a6a;
+    border: solid 1px #d6d6d6;
+    cursor: pointer;
+}
+
+.buttonAllSelected,
+.buttonMyFavesSelected {
+    width: 100px;
+    background-color: transparent;
+    border: solid 1px #d6d6d6;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #1797ff;
+    border: solid 1px #1797ff;
+    cursor: pointer;
+}
+
+.buttonAll,
+.buttonAllSelected {
+    border-radius: 2px 0 0 2px;
+}
+
+.buttonMyFaves,
+.buttonMyFavesSelected {
+    border-radius: 0 2px 2px 0;
+}
+
+@media (min-width: 600px) {
+    .container {
+        padding: 7vh 0;
+    }
+}
