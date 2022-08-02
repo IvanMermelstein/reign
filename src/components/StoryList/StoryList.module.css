@@ -10,10 +10,9 @@
     .container {
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
         width: 90vw;
         max-width: var(--content-max-width);
-        gap: 30px;
         margin: 0 auto;
     }
 
