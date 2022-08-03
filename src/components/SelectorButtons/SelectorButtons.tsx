@@ -7,7 +7,8 @@ enum Selected {
 }
 
 const SelectorButtons = () => {
-    const { selected, setSelected } = useAppContext() as ContextProps;
+    const { buttonSelected: selected, setButtonSelected: setSelected } =
+        useAppContext() as ContextProps;
 
     return (
         <div className={styles.container}>

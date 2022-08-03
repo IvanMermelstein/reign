@@ -8,7 +8,10 @@ const Header = () => {
                     src='./logo.svg'
                     alt='Hacker News logo'
                     className={styles.logo}
-                    onClick={() => {}}
+                    onClick={() => {
+                        localStorage.clear();
+                        window.location.reload();
+                    }}
                 />
             </div>
         </header>
