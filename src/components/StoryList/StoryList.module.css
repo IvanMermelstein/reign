@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-bottom: 2vh;
 }
 
 @media (min-width: 600px) {
@@ -14,10 +15,5 @@
         width: 90vw;
         max-width: var(--content-max-width);
         margin: 0 auto;
-    }
-
-    .container::after {
-        content: '';
-        flex: auto;
     }
 }

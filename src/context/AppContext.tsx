@@ -1,27 +1,42 @@
 import { createContext, FC, useContext, useState } from 'react';
+import { Story } from '../../typings/types';
 
 type Props = {
     children?: React.ReactNode;
 };
 
-enum Selected {
+export enum Selected {
     All,
     MyFaves,
 }
 
 export type ContextProps = {
-    selected: Selected;
-    setSelected: (selected: Selected) => void;
+    buttonSelected: Selected;
+    setButtonSelected: (selected: Selected) => void;
+    comboSelected: string;
+    setComboSelected: (selected: string) => void;
+    favs: Story[];
+    setFavs: (favs: Story[]) => void;
 };
 
 export const AppContext = createContext<ContextProps | null>(null);
 export const useAppContext = () => useContext(AppContext);
 
 const AppProvider: FC<Props> = ({ children }) => {
-    const [selected, setSelected] = useState(Selected.All);
+    const [buttonSelected, setButtonSelected] = useState(Selected.All);
+    const [comboSelected, setComboSelected] = useState('');
+    const [favs, setFavs] = useState<Story[]>([]);
 
     return (
-        <AppContext.Provider value={{ selected, setSelected }}>
+        <AppContext.Provider
+            value={{
+                buttonSelected,
+                setButtonSelected,
+                comboSelected,
+                setComboSelected,
+                favs,
+                setFavs,
+            }}>
             {children}
         </AppContext.Provider>
     );

@@ -1,28 +1,43 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { ContextProps, useAppContext } from '../../context/AppContext';
 import styles from './Combo.module.css';
+
+const COMBO_SELECTED = 'COMBO_SELECTED';
+const itemList = [
+    {
+        name: 'Angular',
+        value: 'angular',
+        image: 'angular.png',
+    },
+    {
+        name: 'Reactjs',
+        value: 'reactjs',
+        image: 'react.png',
+    },
+    {
+        name: 'Vuejs',
+        value: 'vuejs',
+        image: 'vue.png',
+    },
+];
 
 const Combo = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-    const [itemList, setItemList] = useState([
-        {
-            name: 'Angular',
-            value: 'angular',
-            image: 'angular.png',
-        },
-        {
-            name: 'Reactjs',
-            value: 'reactjs',
-            image: 'react.png',
-        },
-        {
-            name: 'Vuejs',
-            value: 'vuejs',
-            image: 'vue.png',
-        },
-    ]);
+
     const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(
         null,
     );
+    const { setComboSelected } = useAppContext() as ContextProps;
+
+    useEffect(() => {
+        const comboSelectedLS = localStorage.getItem(COMBO_SELECTED);
+        if (comboSelectedLS) {
+            setComboSelected(comboSelectedLS);
+            setSelectedItemIndex(
+                itemList.findIndex(item => item.value === comboSelectedLS),
+            );
+        }
+    }, [setComboSelected, setSelectedItemIndex]);
 
     return (
         <div className={styles.container}>
@@ -52,6 +67,11 @@ const Combo = () => {
                                     className={styles.item}
                                     onClick={() => {
                                         setSelectedItemIndex(index);
+                                        setComboSelected(item.value);
+                                        localStorage.setItem(
+                                            COMBO_SELECTED,
+                                            item.value,
+                                        );
                                         setIsDropdownVisible(false);
                                     }}>
                                     <img
